@@ -19,3 +19,5 @@ Options:
 - `headingText` (optional) - the text to use for the modal heading
 - `confirmText` (optional) - the text to use for the confirm button
 - `loginText` (optional) - the text to use for the log in button
+- `profileRelay` (optional) - the relay to use for fetching the user profile
+- `publishRelay` (optional) - the relay to use for publishing the user's note
