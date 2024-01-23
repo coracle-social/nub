@@ -49,6 +49,14 @@ function shareOnNostr(element, opts = {}) {
     return hashArray.map(item => item.toString(16).padStart(2, "0")).join("")
   }
 
+  function remove(selector) {
+    const el = document.querySelector(selector)
+
+    if (el) {
+      el.remove()
+    }
+  }
+
   function sendMessage(url, message, {onMessage, onTimeout}) {
     const ws = new WebSocket(url)
 
@@ -182,7 +190,7 @@ function shareOnNostr(element, opts = {}) {
 
   function attemptLogin() {
     if (pubkey) {
-      hideLogin()
+      remove('.nub__modal-login')
       showAccount()
       showConfirm()
     } else if (rejected) {
@@ -208,6 +216,8 @@ function shareOnNostr(element, opts = {}) {
   }
 
   function showAccount() {
+    remove('.nub__modal-account')
+
     const account = document.createElement('p')
 
     account.classList.add('nub__modal-account')
@@ -218,6 +228,8 @@ function shareOnNostr(element, opts = {}) {
   }
 
   function showConfirm() {
+    remove('.nub__modal-confirm')
+
     const confirm = document.createElement('button')
 
     confirm.classList.add('nub__modal-confirm')
@@ -232,27 +244,19 @@ function shareOnNostr(element, opts = {}) {
   }
 
   function showLogin() {
-    if (!document.querySelector('.nub__modal-login')) {
-      const login = document.createElement('button')
+    remove('.nub__modal-login')
 
-      login.classList.add('nub__modal-login')
-      login.classList.add('nub-style__button')
-      login.textContent = opts.loginText || "Log In"
+    const login = document.createElement('button')
 
-      login.addEventListener('click', function(e) {
-        attemptLogin()
-      })
+    login.classList.add('nub__modal-login')
+    login.classList.add('nub-style__button')
+    login.textContent = opts.loginText || "Log In"
 
-      document.querySelector('.nub__modal-modal').append(login)
-    }
-  }
+    login.addEventListener('click', function(e) {
+      attemptLogin()
+    })
 
-  function hideLogin() {
-    const login = document.querySelector('.nub__modal-login')
-
-    if (login) {
-      login.remove()
-    }
+    document.querySelector('.nub__modal-modal').append(login)
   }
 
   function hideModal() {
