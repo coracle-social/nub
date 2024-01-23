@@ -1,14 +1,120 @@
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#9543dc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="description" content="A share button for nostr" />
+    <meta property="og:title" content="Nub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A share button for nostr" />
+    <meta property="og:image" content="/ostrich.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nub" />
+    <meta name="twitter:description" content="A share button for nostr" />
+    <meta name="twitter:image" content="/ostrich.png" />
+    <meta property="og:url" content="https://nub.coracle.social" />
+    <title>Nub</title>
     <link rel="stylesheet" href="./nub.css" />
+    <style type="text/css">
+      body {
+        background: #9543dc;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        position: relative;
+      }
+
+      .content {
+        height: 60vh;
+        background-color: white;
+      }
+
+      h1 {
+        color: white;
+        font-size: 10em;
+        text-align: center;
+        margin: 5rem 0;
+      }
+
+      h2 {
+        color: white;
+        font-size: 5em;
+        text-align: center;
+        margin: 4rem 0;
+      }
+
+      .wrapper {
+        padding: 16px;
+      }
+
+      .white {
+        max-width: 600px;
+        border-radius: 10px;
+        background: white;
+        margin: 0 auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      textarea {
+        width: 100%;
+        height: 4.5em;
+        border-radius: 3px;
+        border: 0;
+        margin: 0 auto;
+        font-family: sans-serif;
+        text-align: left;
+        font-size: 1.2em;
+        border: 1px solid #9543dc;
+        background: #f4e6ff;
+        padding: 8px;
+      }
+
+      .github {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      .github img {
+        width: 24px;
+        filter: brightness(0) invert(1);
+      }
+    </style>
   </head>
   <body>
-    <div id="app">
+    <div id="content">
+      <h1>Nub</h1>
+      <h2>A share button for nostr</h2>
+      <div class="wrapper">
+        <div class="white">
+          <textarea id="textarea">
+            Check out this cool nostr share button!
+
+            https://nub.coracle.social
+          </textarea>
+          <div id="button"></div>
+        </div>
+        <a class="github" href="https://github.com/coracle-social/nub" target="_blank">
+          <img src="/github.png" />
+        </a>
+      </div>
     </div>
     <script type="text/javascript" src="./nub.js"></script>
     <script type="text/javascript">
-      shareOnNostr(app, {
-        content: "Lorem ipsum dolor amet",
+      textarea.value = textarea.value.replace(/ +/g, ' ').trim()
+
+      shareOnNostr(button, {
+        buttonImage: '/ostrich.png',
+        getContent: function() {
+          return textarea.value
+        },
       })
     </script>
   </body>

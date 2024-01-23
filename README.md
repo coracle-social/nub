@@ -6,7 +6,7 @@ Currently requires a NIP 07 extension to log in.
 
 ## Usage
 
-See [index.html](./index.html) for a working example.
+See [example.html](./example.html) for a working example.
 
 Nub is fully themeable, you can either override the css provided, or include your own stylesheet.
 
@@ -14,10 +14,13 @@ To set up the button, call `shareOnNostr` with an element to append the button t
 
 Options:
 
-- `content` (required) - the content to share
-- `buttonText` (optional) - the text to use for the share button
-- `headingText` (optional) - the text to use for the modal heading
-- `confirmText` (optional) - the text to use for the confirm button
-- `loginText` (optional) - the text to use for the log in button
-- `profileRelay` (optional) - the relay to use for fetching the user profile
-- `publishRelay` (optional) - the relay to use for publishing the user's note
+- `kind` (optional) - the event kind to publish (default: 1)
+- `getContent` (required) - a function that returns the content to share when the button is clicked
+- `modifyTemplate` (optional) - a function that takes the event template and modifies it before publishing
+- `buttonText` (optional) - the text to use for the share button (default: "Share on Nostr")
+- `buttonImage` (optional) - an image url to use for the share button
+- `headingText` (optional) - the text to use for the modal heading (default: "Share on Nostr")
+- `confirmText` (optional) - the text to use for the confirm button (default: "Share on Nostr")
+- `loginText` (optional) - the text to use for the log in button (default: "Log In")
+- `profileRelay` (optional) - the relay to use for fetching the user profile (default: "wss://purplepag.es")
+- `publishRelay` (optional) - the relay to use for publishing the user's note (default: "wss://relay.damus.io")

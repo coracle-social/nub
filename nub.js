@@ -4,11 +4,22 @@ function shareOnNostr(element, opts = {}) {
   let username = localStorage.getItem('nostr-share__username')
 
   const button = document.createElement('button')
+  const text = document.createTextNode(opts.buttonText || "Share on Nostr")
 
   button.classList.add('nostr-share__button')
   button.classList.add('nostr-share-style__button')
-  button.textContent = opts.buttonText || "Share"
   button.addEventListener('click', showModal)
+
+  if (opts.buttonImage) {
+    const image = document.createElement('img')
+
+    image.src = opts.buttonImage
+    image.classList.add('nostr-share__button-image')
+
+    button.append(image)
+  }
+
+  button.append(text)
 
   element.append(button)
 
@@ -93,12 +104,18 @@ function shareOnNostr(element, opts = {}) {
   }
 
   async function sendShare() {
-    const template = {
-      kind: 9802,
+    const content = document.querySelector('nostr-share__modal-content')
+
+    let template = {
+      kind: opts.kind || 1,
       pubkey: pubkey,
-      content: opts.content,
+      content: content.textContent,
       tags: [["r", window.location.href]],
       created_at: Math.floor(Date.now() / 1000),
+    }
+
+    if (opts.modifyTemplate) {
+      template = opts.modifyTemplate(template)
     }
 
     template.id = await getEventHash(template)
@@ -155,7 +172,7 @@ function shareOnNostr(element, opts = {}) {
     modal.append(heading)
     modal.append(content)
     heading.textContent = opts.headingText || "Share on Nostr"
-    content.textContent = opts.content
+    content.textContent = opts.getContent()
 
     setTimeout(function() {
       backdrop.classList.add('nostr-share__modal-active')

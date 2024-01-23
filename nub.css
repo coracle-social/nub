@@ -1,8 +1,9 @@
+/* Shared styles */
 
 .nostr-share-style__button {
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
-  background-color: #b836c9;
+  background-color: #9543dc;
   color: white;
   border-radius: 3px;
   border: none;
@@ -19,6 +20,18 @@
 
 .nostr-share-style__button:hover {
   background-color: #c047cf;
+}
+
+/* Specific components */
+
+.nostr-share__button {
+  display: flex;
+  gap: 1rem;
+}
+
+.nostr-share__button-image {
+  height: 26px;
+  margin: -2px;
 }
 
 .nostr-share__modal-backdrop {
@@ -70,6 +83,7 @@
   background-color: #eee;
   padding: 1rem;
   border-radius: 3px;
+  white-space: pre-line;
 }
 
 .nostr-share__modal-account {
