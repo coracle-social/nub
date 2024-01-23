@@ -104,7 +104,7 @@ function shareOnNostr(element, opts = {}) {
   }
 
   async function sendShare() {
-    const content = document.querySelector('nostr-share__modal-content')
+    const content = document.querySelector('.nostr-share__modal-content')
 
     let template = {
       kind: opts.kind || 1,
