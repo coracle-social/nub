@@ -23,4 +23,4 @@ Options:
 - `confirmText` (optional) - the text to use for the confirm button (default: "Share on Nostr")
 - `loginText` (optional) - the text to use for the log in button (default: "Log In")
 - `profileRelay` (optional) - the relay to use for fetching the user profile (default: "wss://purplepag.es")
-- `publishRelay` (optional) - the relay to use for publishing the user's note (default: "wss://relay.damus.io")
+- `publishRelay` (optional) - the relay to use for publishing the user's note (default: "wss://nostr.mutinywallet.com")

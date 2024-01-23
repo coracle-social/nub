@@ -123,7 +123,7 @@ function shareOnNostr(element, opts = {}) {
     let resolved = false
 
     window.nostr.signEvent(template).then(function(event) {
-      sendMessage(opts.publishRelay || 'wss://relay.damus.io', ["EVENT", event], {
+      sendMessage(opts.publishRelay || 'wss://nostr.mutinywallet.com', ["EVENT", event], {
         onMessage: function(ws, message) {
           if (message[0] === 'OK') {
             if (!message[2]) {
