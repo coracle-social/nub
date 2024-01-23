@@ -6,7 +6,7 @@ Currently requires a NIP 07 extension to log in.
 
 ## Usage
 
-See [example.html](./example.html) for a working example.
+See [example.html](./example.html) for a working example and [nub.coracle.social](https://nub.coracle.social) for a nice landing page.
 
 Nub is fully themeable, you can either override the css provided, or include your own stylesheet.
 
