@@ -1,20 +1,20 @@
 function shareOnNostr(element, opts = {}) {
   let rejected = false
-  let pubkey = localStorage.getItem('nostr-share__pubkey')
-  let username = localStorage.getItem('nostr-share__username')
+  let pubkey = localStorage.getItem('nub__pubkey')
+  let username = localStorage.getItem('nub__username')
 
   const button = document.createElement('button')
   const text = document.createTextNode(opts.buttonText || "Share on Nostr")
 
-  button.classList.add('nostr-share__button')
-  button.classList.add('nostr-share-style__button')
+  button.classList.add('nub__button')
+  button.classList.add('nub-style__button')
   button.addEventListener('click', showModal)
 
   if (opts.buttonImage) {
     const image = document.createElement('img')
 
     image.src = opts.buttonImage
-    image.classList.add('nostr-share__button-image')
+    image.classList.add('nub__button-image')
 
     button.append(image)
   }
@@ -29,12 +29,12 @@ function shareOnNostr(element, opts = {}) {
 
   function setPubkey(k) {
     pubkey = k
-    localStorage.setItem('nostr-share__pubkey', k)
+    localStorage.setItem('nub__pubkey', k)
   }
 
   function setUsername(n) {
     username = n
-    localStorage.setItem('nostr-share__username', n)
+    localStorage.setItem('nub__username', n)
   }
 
   function getEventHash(e) {
@@ -104,7 +104,7 @@ function shareOnNostr(element, opts = {}) {
   }
 
   async function sendShare() {
-    const content = document.querySelector('.nostr-share__modal-content')
+    const content = document.querySelector('.nub__modal-content')
 
     let template = {
       kind: opts.kind || 1,
@@ -153,13 +153,13 @@ function shareOnNostr(element, opts = {}) {
     const heading = document.createElement('p')
     const content = document.createElement('p')
 
-    backdrop.classList.add('nostr-share__modal-backdrop')
-    modal.classList.add('nostr-share__modal-modal')
-    padding.classList.add('nostr-share__modal-padding')
-    heading.classList.add('nostr-share__modal-heading')
-    heading.classList.add('nostr-share-style__p')
-    content.classList.add('nostr-share__modal-content')
-    content.classList.add('nostr-share-style__p')
+    backdrop.classList.add('nub__modal-backdrop')
+    modal.classList.add('nub__modal-modal')
+    padding.classList.add('nub__modal-padding')
+    heading.classList.add('nub__modal-heading')
+    heading.classList.add('nub-style__p')
+    content.classList.add('nub__modal-content')
+    content.classList.add('nub-style__p')
 
     backdrop.addEventListener('click', hideModal)
     modal.addEventListener('click', function(e) {
@@ -175,7 +175,7 @@ function shareOnNostr(element, opts = {}) {
     content.textContent = opts.getContent()
 
     setTimeout(function() {
-      backdrop.classList.add('nostr-share__modal-active')
+      backdrop.classList.add('nub__modal-active')
     })
 
     attemptLogin()
@@ -211,45 +211,45 @@ function shareOnNostr(element, opts = {}) {
   function showAccount() {
     const account = document.createElement('p')
 
-    account.classList.add('nostr-share__modal-account')
-    account.classList.add('nostr-share-style__p')
+    account.classList.add('nub__modal-account')
+    account.classList.add('nub-style__p')
     account.textContent = "Posting as @" + (username || pubkey.slice(0, 8))
 
-    document.querySelector('.nostr-share__modal-modal').append(account)
+    document.querySelector('.nub__modal-modal').append(account)
   }
 
   function showConfirm() {
     const confirm = document.createElement('button')
 
-    confirm.classList.add('nostr-share__modal-confirm')
-    confirm.classList.add('nostr-share-style__button')
+    confirm.classList.add('nub__modal-confirm')
+    confirm.classList.add('nub-style__button')
     confirm.textContent = opts.confirmText || "Share"
 
     confirm.addEventListener('click', function(e) {
       sendShare()
     })
 
-    document.querySelector('.nostr-share__modal-modal').append(confirm)
+    document.querySelector('.nub__modal-modal').append(confirm)
   }
 
   function showLogin() {
-    if (!document.querySelector('.nostr-share__modal-login')) {
+    if (!document.querySelector('.nub__modal-login')) {
       const login = document.createElement('button')
 
-      login.classList.add('nostr-share__modal-login')
-      login.classList.add('nostr-share-style__button')
+      login.classList.add('nub__modal-login')
+      login.classList.add('nub-style__button')
       login.textContent = opts.loginText || "Log In"
 
       login.addEventListener('click', function(e) {
         attemptLogin()
       })
 
-      document.querySelector('.nostr-share__modal-modal').append(login)
+      document.querySelector('.nub__modal-modal').append(login)
     }
   }
 
   function hideLogin() {
-    const login = document.querySelector('.nostr-share__modal-login')
+    const login = document.querySelector('.nub__modal-login')
 
     if (login) {
       login.remove()
@@ -257,10 +257,10 @@ function shareOnNostr(element, opts = {}) {
   }
 
   function hideModal() {
-    const backdrop = document.querySelector('.nostr-share__modal-backdrop')
+    const backdrop = document.querySelector('.nub__modal-backdrop')
 
     if (backdrop) {
-      backdrop.classList.remove('nostr-share__modal-active')
+      backdrop.classList.remove('nub__modal-active')
 
       setTimeout(function() {
         backdrop.remove()

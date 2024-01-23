@@ -7,11 +7,11 @@
     <meta property="og:title" content="Nub" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="A share button for nostr" />
-    <meta property="og:image" content="/ostrich.png" />
+    <meta property="og:image" content="/n.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Nub" />
     <meta name="twitter:description" content="A share button for nostr" />
-    <meta name="twitter:image" content="/ostrich.png" />
+    <meta name="twitter:image" content="/n.png" />
     <meta property="og:url" content="https://nub.coracle.social" />
     <title>Nub</title>
     <link rel="stylesheet" href="./nub.css" />
@@ -111,7 +111,7 @@
       textarea.value = textarea.value.replace(/ +/g, ' ').trim()
 
       shareOnNostr(button, {
-        buttonImage: '/ostrich.png',
+        buttonImage: '/n.png',
         getContent: function() {
           return textarea.value
         },

@@ -1,6 +1,6 @@
 /* Shared styles */
 
-.nostr-share-style__button {
+.nub-style__button {
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
   background-color: #9543dc;
@@ -13,28 +13,27 @@
   font-family: sans-serif;
 }
 
-.nostr-share-style__p {
+.nub-style__p {
   margin-block-start: 0;
   margin-block-end: 0;
 }
 
-.nostr-share-style__button:hover {
+.nub-style__button:hover {
   background-color: #c047cf;
 }
 
 /* Specific components */
 
-.nostr-share__button {
+.nub__button {
   display: flex;
   gap: 1rem;
 }
 
-.nostr-share__button-image {
-  height: 26px;
-  margin: -2px;
+.nub__button-image {
+  height: 24px;
 }
 
-.nostr-share__modal-backdrop {
+.nub__modal-backdrop {
   position: fixed;
   left: 0;
   right: 0;
@@ -50,12 +49,12 @@
   opacity: 0;
 }
 
-.nostr-share__modal-active {
+.nub__modal-active {
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 1;
 }
 
-.nostr-share__modal-modal {
+.nub__modal-modal {
   font-family: sans-serif;
   cursor: default;
   border-radius: 3px;
@@ -67,18 +66,18 @@
   gap: 0.5rem;
 }
 
-.nostr-share__modal-padding {
+.nub__modal-padding {
   max-height: 300px;
   height: 50vh;
 }
 
-.nostr-share__modal-heading {
+.nub__modal-heading {
   margin-bottom: 0.5rem;
   font-family: sans-serif;
   font-size: 1.5rem;
 }
 
-.nostr-share__modal-content {
+.nub__modal-content {
   border: 1px solid #ccc;
   background-color: #eee;
   padding: 1rem;
@@ -86,7 +85,7 @@
   white-space: pre-line;
 }
 
-.nostr-share__modal-account {
+.nub__modal-account {
   text-align: right;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
