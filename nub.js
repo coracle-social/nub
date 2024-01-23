@@ -123,7 +123,6 @@ function shareOnNostr(element, opts = {}) {
     let resolved = false
 
     window.nostr.signEvent(template).then(function(event) {
-      return hideModal()
       sendMessage(opts.publishRelay || 'wss://relay.damus.io', ["EVENT", event], {
         onMessage: function(ws, message) {
           if (message[0] === 'OK') {
